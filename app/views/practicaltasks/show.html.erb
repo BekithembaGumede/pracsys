@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= link_to @practicaltask.course.coursecode, course_path(@practicaltask.course) %>
+</p>
+
+<p>
+  <strong>Taskname:</strong>
+  <%= @practicaltask.taskname %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @practicaltask.description %>
+</p>
+
+<p>
+  <strong>Duedate:</strong>
+  <%= @practicaltask.duedate %>
+</p>
+
+<%= link_to 'Edit', edit_practicaltask_path(@practicaltask) %> |
+<%= link_to 'Back', practicaltasks_path %>

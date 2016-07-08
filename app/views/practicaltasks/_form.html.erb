@@ -1,0 +1,34 @@
+<%= form_for(@practicaltask) do |f| %>
+  <% if @practicaltask.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@practicaltask.errors.count, "error") %> prohibited this practicaltask from being saved:</h2>
+
+      <ul>
+      <% @practicaltask.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course_id %><br>
+    <%= f.collection_select(:course_id, Course.all, :id, :coursecode, :prompt => 'Please select course code') %>
+  </div>
+  <div class="field">
+    <%= f.label :taskname %><br>
+    <%= f.text_field :taskname %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :duedate %><br>
+    <%= f.datetime_select :duedate %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
